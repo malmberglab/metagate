@@ -1,0 +1,9 @@
+root = true
+
+[*.R]
+indent_style = space
+indent_size = 2
+
+[*.{cpp,css,js,html}]
+indent_style = tab
+indent_size = 4
