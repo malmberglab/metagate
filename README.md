@@ -9,8 +9,8 @@ For more information about how to use MetaGate, please visit [metagate.malmbergl
 
 The following instructions describe how to install MetaGate directly from this GitHub repository.
 
-	if (!require("devtools")) install.packages("devtools")
-	devtools::install_github("malmberglab/metagate")
+	if (!require("remotes")) install.packages("remotes")
+	remotes::install_github("malmberglab/metagate")
 
 
 ## Launch MetaGate
