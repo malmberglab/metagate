@@ -1,3 +1,9 @@
+#
+#  MetaGate: R package for visualization and statistical analysis of cytometry data.
+#  Copyright (C) 2023 Malmberg Lab, University of Oslo. See LICENSE.md
+#  
+
+
 #' Run shiny app
 #'
 #' This function launches the graphical user interface in the web browser.

@@ -1,3 +1,9 @@
+#
+#  MetaGate: R package for visualization and statistical analysis of cytometry data.
+#  Copyright (C) 2023 Malmberg Lab, University of Oslo. See LICENSE.md
+#  
+
+
 format_readout_names <- function(readout_ids) {
   readout_ids <- gsub("^Absolute count___(.*)___(.*)$", "Absolute count of \\1", readout_ids)
   readout_ids <- gsub("Percent___", "% ", readout_ids, fixed = TRUE)

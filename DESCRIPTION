@@ -36,4 +36,4 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)
-License: See https://github.com/malmberglab/metagate/blob/main/LICENSE.pdf
+License: GPL (>= 3)

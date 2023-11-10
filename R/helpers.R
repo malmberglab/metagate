@@ -1,3 +1,9 @@
+#
+#  MetaGate: R package for visualization and statistical analysis of cytometry data.
+#  Copyright (C) 2023 Malmberg Lab, University of Oslo. See LICENSE.md
+#  
+
+
 p_adjust_methods <- function(method = NULL) {
   p_adjust_methods <- list("No p value adjustment"                     = "none",
                            "Holm"                                      = "holm",

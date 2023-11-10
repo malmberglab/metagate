@@ -1,3 +1,9 @@
+#
+#  MetaGate: R package for visualization and statistical analysis of cytometry data.
+#  Copyright (C) 2023 Malmberg Lab, University of Oslo. See LICENSE.md
+#  
+
+
 create_samples_table <- function(samples, pair_by = NULL, color_by = NULL, color_data = NULL, excluded = NULL,
                                  percent = FALSE) {
   if (is.null(samples)) {

@@ -1,11 +1,6 @@
 #
-#  MetaGate
-# 
-#  R package for visualization and statistical analysis of cytometry data.
-#  Copyright (C) 2023 Eivind Heggernes Ask, University Of Oslo and Oslo University Hospital
-# 
-#  License terms and conditions:
-#  https://github.com/malmberglab/metagate/blob/main/LICENSE.pdf
+#  MetaGate: R package for visualization and statistical analysis of cytometry data.
+#  Copyright (C) 2023 Malmberg Lab, University of Oslo. See LICENSE.md
 #  
 
 
@@ -38,9 +33,11 @@
   packageStartupMessage("\n",
                         "Welcome to metagate ", packageDescription("metagate", fields = "Version"), "!\n",
                         "\n",
-                        "Visit metagate.malmberglab.com for instructions.\n",
-                        "License terms and conditions:\n",
-                        "https://github.com/malmberglab/metagate/blob/main/LICENSE.pdf\n\n",
+                        "Please visit metagate.malmberglab.com for instructions.\n\n",
+                        "Copyright (C) 2023 Malmberg Lab, University of Oslo\n",
+                        "This program comes with ABSOLUTELY NO WARRANTY.\n",
+                        "This is free software, and you are welcome to redistribute\n",
+                        "it under certain conditions. See LICENSE.md for details.\n\n",
                         "Start the user interface by entering: run_metagate()\n"
   )
 }

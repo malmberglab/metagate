@@ -1,3 +1,9 @@
+#
+#  MetaGate: R package for visualization and statistical analysis of cytometry data.
+#  Copyright (C) 2023 Malmberg Lab, University of Oslo. See LICENSE.md
+#  
+
+
 fcs_check_files <- function(fcs_files, flowjo_file_names = NULL) {
   file_count <- nrow(fcs_files)
 

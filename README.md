@@ -28,8 +28,3 @@ MetaGate will now launch in your web browser. If your web browser does not open 
 ## How to use MetaGate
 
 Please visit our website at [metagate.malmberglab.com](http://metagate.malmberglab.com) for information on how to use MetaGate.
-
-
-## License
-
-See https://github.com/malmberglab/metagate/blob/main/LICENSE.pdf

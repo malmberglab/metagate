@@ -1,3 +1,10 @@
+/*
+
+  MetaGate: R package for visualization and statistical analysis of cytometry data.
+  Copyright (C) 2023 Malmberg Lab, University of Oslo. See LICENSE.md
+  
+*/
+
 window.onbeforeunload = function() { return true; }
 
 

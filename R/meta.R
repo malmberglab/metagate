@@ -1,3 +1,9 @@
+#
+#  MetaGate: R package for visualization and statistical analysis of cytometry data.
+#  Copyright (C) 2023 Malmberg Lab, University of Oslo. See LICENSE.md
+#  
+
+
 meta_create_summary_table <- function(meta_data) {
   variables <- setdiff(names(meta_data), "file")
 

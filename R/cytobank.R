@@ -1,3 +1,9 @@
+#
+#  MetaGate: R package for visualization and statistical analysis of cytometry data.
+#  Copyright (C) 2023 Malmberg Lab, University of Oslo. See LICENSE.md
+#  
+
+
 cytobank_parse <- function(path) {
   gatingML <- tryCatch(suppressMessages(CytoML:::read.gatingML.cytobank(path)),
                        warning = function(w) { msg("Warning reading GatingML file: ", w$message); return(NULL) },

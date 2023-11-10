@@ -1,3 +1,9 @@
+#
+#  MetaGate: R package for visualization and statistical analysis of cytometry data.
+#  Copyright (C) 2023 Malmberg Lab, University of Oslo. See LICENSE.md
+#  
+
+
 load_metagate_file <- function(path) {
   if (!endsWith(path, paste0(".", setting("project_file_extension")))) {
     return(list(error = paste0("The selected file is not a .", setting("project_file_extension"), " file")))

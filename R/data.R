@@ -1,3 +1,9 @@
+#
+#  MetaGate: R package for visualization and statistical analysis of cytometry data.
+#  Copyright (C) 2023 Malmberg Lab, University of Oslo. See LICENSE.md
+#  
+
+
 # Data for bar plots
 get_single_readout_data <- function(samples, readouts, stat_data, count_data, paired_groups = FALSE,
                                     paired_populations = FALSE) {

@@ -1,3 +1,9 @@
+#
+#  MetaGate: R package for visualization and statistical analysis of cytometry data.
+#  Copyright (C) 2023 Malmberg Lab, University of Oslo. See LICENSE.md
+#  
+
+
 heatmap_ui <- function(input, output, session) {
   
   ui_selected_readouts <- callModule(module   = readout_ui,

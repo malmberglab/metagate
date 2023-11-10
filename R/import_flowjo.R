@@ -1,3 +1,9 @@
+#
+#  MetaGate: R package for visualization and statistical analysis of cytometry data.
+#  Copyright (C) 2023 Malmberg Lab, University of Oslo. See LICENSE.md
+#  
+
+
 import_flowjo_ui <- function(input, output, session) { 
 
   output$import_flowjo_ui <- renderUI({

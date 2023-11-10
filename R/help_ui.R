@@ -1,3 +1,9 @@
+#
+#  MetaGate: R package for visualization and statistical analysis of cytometry data.
+#  Copyright (C) 2023 Malmberg Lab, University of Oslo. See LICENSE.md
+#  
+
+
 help_ui <- function(input, output, session) {
   
   # ==  RENDER UI  ===========================================================
@@ -15,11 +21,6 @@ help_ui <- function(input, output, session) {
     ui <- tagList(p(HTML("For more information about how to use MetaGate,<br>please visit ",
                          "<a href=\"http://metagate.malmberglab.com\" target=\"_blank\"> ",
                          "<strong>metagate.malmberglab.com</strong></a>")),
-
-                  h3("License"),
-                  p(HTML("Please see the ",
-                         "<a href=\"https://github.com/malmberglab/metagate/blob/main/LICENSE.pdf\" target=\"_blank\"> ",
-                         "<strong>MetaGate license file on GitHub</strong></a>")),
 
                   h3("Citation"),
                   p(HTML("<em>Information about citation to be added upon publication</em>")),
