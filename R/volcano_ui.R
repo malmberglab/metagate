@@ -204,47 +204,54 @@ volcano_ui <- function(input, output, session) {
       ), # /column
       column(width = 3,
         tags$label("Manual upper X limit:"),
-        fluidRow(
-          column(width = 2,
+        div(
+          div(style = "display: inline-block; width: 39px",
             checkboxInput(inputId = "volcano_plot_manual_x_upper_limit",
                           label   = NULL,
                           value   = FALSE)),
-          column(width = 10,
+          div(style = "display: inline-block; width: 150px",
             numericInput(inputId = "volcano_plot_manual_x_upper_limit_value",
                          label   = NULL,
                          value   = 5))
-        ), # /fluidRow
+        ),
         tags$label("Manual lower X limit:"),
-        fluidRow(
-          column(width = 2,
+        div(
+          div(style = "display: inline-block; width: 30px",
             checkboxInput(inputId = "volcano_plot_manual_x_lower_limit",
                           label   = NULL,
                           value   = FALSE)),
-          column(width = 10,
+          div(style = "display: inline-block; width: 150px",
             numericInput(inputId = "volcano_plot_manual_x_lower_limit_value",
                          label   = NULL,
                          value   = -5))
-        ), # /fluidRow
+        ),
         tags$label("Manual p value limit:"),
-        fluidRow(
-          column(width = 2,
+        div(
+          div(style = "display: inline-block; width: 30px",
             checkboxInput(inputId = "volcano_plot_manual_y_upper_limit",
                           label   = NULL,
                           value   = FALSE)),
-          column(width = 10,
+          div(style = "display: inline-block; width: 150px",
             numericInput(inputId = "volcano_plot_manual_y_upper_limit_value",
                          label   = NULL,
                          value   = 0.05,
                          min     = 0,
                          max     = 1))
-        ) # /fluidRow
+        ),
+        selectInput(inputId   = "volcano_plot_y_axis_label_type",
+                    label     = "Y axis (p value) labels:",
+                    choices   = list("E notation" = "E", "Superscript" = "superscript", "Decimal" = "decimal"),
+                    multiple  = FALSE,
+                    selectize = TRUE,
+                    width     = "200px")
       ), # /column
       column(width = 3,
         checkboxInput(inputId = "volcano_plot_annotation",
                       label   = "Show annotations",
                       value   = FALSE),
-        sliderInput(inputId = "volcano_plot_annotation_size",
-                    label   = "Annotation size:",
+        div(class = "plot_checkbox_body volcano_annotation_controls", style = "display: none",
+          sliderInput(inputId = "volcano_plot_annotation_size",
+                    label   = "Text size:",
                     min     = 0,
                     max     = 15,
                     value   = 5,
@@ -253,20 +260,33 @@ volcano_ui <- function(input, output, session) {
                     ticks   = TRUE,
                     animate = FALSE,
                     width   = "100%"),
-        selectInput(inputId   = "volcano_plot_y_axis_label_type",
-                    label     = "Y axis labels:",
-                    choices   = list("E notation" = "E", "Superscript" = "superscript", "Decimal" = "decimal"),
-                    multiple  = FALSE,
-                    selectize = TRUE,
-                    width     = "100%")
+          numericInput(inputId = "volcano_plot_annotation_limit_p",
+                       label   = "p value limit (Y axis):",
+                       value   = 0.05),
+          numericInput(inputId = "volcano_plot_annotation_limit_change",
+                       label   = "Change limit (X axis):",
+                       value   = 0)
+        )
       ), # /column
       column(width = 3,
-        numericInput(inputId = "volcano_plot_annotation_limit_p",
-                     label   = "Annotation p value limit (Y axis):",
-                     value   = 0.05),
-        numericInput(inputId = "volcano_plot_annotation_limit_change",
-                     label   = "Annotation change limit (X axis):",
-                     value   = 0)
+        checkboxInput(inputId = "volcano_plot_signline",
+                      label   = "Show significance line",
+                      value   = FALSE),
+        div(class = "plot_checkbox_body volcano_signline_controls", style = "display: none",
+          numericInput(inputId = "volcano_plot_signline_limit_p",
+                       label   = "p value limit:",
+                       value   = 0.05),
+          colorSelectizeInput(inputId  = "volcano_plot_signline_color",
+                              label    = "Line color:",
+                              selected = "gray50",
+                              maxItems = 1),
+          selectInput(inputId   = "volcano_plot_signline_type",
+                      label     = "Line type:",
+                      choices   = list("Solid" = "solid", "Dashed" = "dashed", "Dotted" = "dotted"),
+                      multiple  = FALSE,
+                      selectize = TRUE,
+                      width     = "200px")
+        )
       )
     ) # /fluidRow
   })
@@ -371,6 +391,26 @@ volcano_ui <- function(input, output, session) {
     if (session$userData$application_state() == "project_loaded") {
       session$userData$volcano_selected_groups(NULL)
       ui_selected_readouts(NULL)
+    }
+  })
+
+
+  # Toggle annotation controls
+  observeEvent(input$volcano_plot_annotation, {
+    if (input$volcano_plot_annotation) {
+      shinyjs::runjs("$('.volcano_annotation_controls').show()")
+    } else {
+      shinyjs::runjs("$('.volcano_annotation_controls').hide()")
+    }
+  })
+
+
+  # Toggle significance line controls
+  observeEvent(input$volcano_plot_signline, {
+    if (input$volcano_plot_signline) {
+      shinyjs::runjs("$('.volcano_signline_controls').show()")
+    } else {
+      shinyjs::runjs("$('.volcano_signline_controls').hide()")
     }
   })
 
@@ -501,6 +541,10 @@ volcano_ui <- function(input, output, session) {
                                   annotation_limit_p      = input$volcano_plot_annotation_limit_p,
                                   annotation_limit_change = input$volcano_plot_annotation_limit_change,
                                   annotation_size         = input$volcano_plot_annotation_size,
+                                  signline                = input$volcano_plot_signline,
+                                  signline_limit_p        = input$volcano_plot_signline_limit_p,
+                                  signline_color          = input$volcano_plot_signline_color,
+                                  signline_type           = input$volcano_plot_signline_type,
                                   y_axis_label_type       = input$volcano_plot_y_axis_label_type)
 
     ui_volcano_messages(c(messages, result$messages))

@@ -185,6 +185,17 @@ div.message_error p {
 }
 
 
+.plot_checkbox_body {
+	border: 1px #E3E3E3 solid;
+	border-radius: 10px;
+	background-color: #F5F5F5;
+	padding: 15px 20px 5px 20px;
+}
+
+.checkbox label span {
+	font-weight: bold;
+}
+
 .help_box {
 	padding: 5px 18px 8px 18px;
 	margin: 20px 0;

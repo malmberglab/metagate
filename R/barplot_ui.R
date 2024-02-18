@@ -296,35 +296,35 @@ barplot_ui <- function(input, output, session) {
       column(width = 3,
         tags$label("Manual upper limit:"),
 
-        fluidRow(
-          column(width = 2,
+        div(
+          div(style = "display: inline-block; width: 30px",
             checkboxInput(inputId = "barplot_plot_manual_upper_limit",
                           label    = NULL,
                           value    = FALSE)
           ),
 
-          column(width = 10,
+          div(style = "display: inline-block; width: 150px",
             numericInput(inputId = "barplot_plot_manual_upper_limit_value",
                          label   = NULL,
                          value   = 100)
           )
-        ), # /fluidRow
+        ),
 
         tags$label("Manual lower limit:"),
 
-        fluidRow(
-          column(width = 2,
+        div(
+          div(style = "display: inline-block; width: 30px",
             checkboxInput(inputId = "barplot_plot_manual_lower_limit",
                           label   = NULL,
                           value   = FALSE)
           ),
 
-          column(width = 10,
+          div(style = "display: inline-block; width: 150px",
             numericInput(inputId = "barplot_plot_manual_lower_limit_value",
                          label   = NULL,
                          value   = 0)
           )
-        ), # /fluidRow
+        ),
 
         selectInput(inputId   = "barplot_plot_transform",
                     label     = "Transform Y axis:",

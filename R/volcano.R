@@ -11,7 +11,8 @@ volcano_module_name <- function() {
 
 create_volcano_plot <- function(data, group_data, groups, readouts, comparison, mean_type, x_lower_limit,
                                 x_upper_limit, y_upper_limit, annotation, annotation_limit_p, annotation_limit_change,
-                                annotation_size, y_axis_label_type) {
+                                annotation_size, signline, signline_limit_p, signline_color, signline_type,
+                                y_axis_label_type) {
   if (length(readouts) < 1 || length(groups) < 1 || is.null(data) || nrow(data) < 1)
     return(NULL)
   
@@ -98,8 +99,18 @@ create_volcano_plot <- function(data, group_data, groups, readouts, comparison, 
                         y     = -log10(p_plot),
                         color = value)) +
     xlab(x_axis_name) +
-    ylab(y_axis_name) +
-    geom_point()
+    ylab(y_axis_name)
+
+
+  if (signline) {
+    if (is.null(signline_color) || signline_color == "") signline_color <- "gray50"
+    p <- p + geom_hline(yintercept = -log10(signline_limit_p),
+                        color      = signline_color,
+                        size       = 0.7,
+                        linetype   = signline_type)
+  }
+
+  p <- p + geom_point()
 
   y_labels <- if (y_axis_label_type == "superscript") {
     c("1", parse(text = paste0("10^-", 1:20)))

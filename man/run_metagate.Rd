@@ -9,7 +9,7 @@ run_metagate(
   modules = getOption("metagate.modules"),
   populations = getOption("metagate.populations", 256),
   groups = getOption("metagate.groups", 20),
-  asterisk_limits = getOption("metagate.asterisk_limits", c(0.05, 0.01, 0.001, 1e-04)),
+  asterisk_limits = getOption("metagate.asterisk_limits", c(0.05, 0.01, 0.001, 0.0001)),
   posthoc_limit = getOption("metagate.posthoc_limit", 0.05),
   port = NULL,
   file = getOption("metagate.file"),

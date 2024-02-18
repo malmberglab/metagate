@@ -188,7 +188,7 @@ col2hex <- function(col) {
     rgb <- col2rgb(col)
     hex <- string_pad(as.character.hexmode(rgb), length = 2, pad = "0")
     return(paste0("#", paste(hex, collapse = "")))
-  }
+}
 
 
 colorSelectizeInput <- function(inputId, label = NULL, selected = NULL, maxItems = NULL, width = "100%") {
@@ -208,7 +208,12 @@ colorSelectizeInput <- function(inputId, label = NULL, selected = NULL, maxItems
   }
 
   if (!is.null(selected)) {
-    selected <- as.list(sapply(selected, col2hex))
+    if (is.null(maxItems) || maxItems != 1) {
+      selected <- as.list(sapply(selected, col2hex))
+      } else {
+        options$onInitialize <- I(paste0("function() { this.setValue('", col2hex(selected), "') }"))
+        selected <- NULL
+      }
   }
 
   selectizeInput(inputId  = inputId,

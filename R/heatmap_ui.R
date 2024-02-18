@@ -192,23 +192,23 @@ heatmap_ui <- function(input, output, session) {
                                 maxItems = 3)
           ),
           tags$label("Manual upper color limit:"),
-          fluidRow(
-            column(width = 2,
+          div(
+            div(style = "display: inline-block; width: 30px",
               checkboxInput(inputId = "heatmap_plot_manual_upper_limit",
                             label   = NULL,
                             value   = FALSE)),
-            column(width = 10,
+            div(style = "display: inline-block; width: 150px",
               numericInput(inputId = "heatmap_plot_manual_upper_limit_value",
                            label = NULL,
                            value = 100))
           ),
           tags$label("Manual lower color limit:"),
-          fluidRow(
-            column(width = 2, 
+          div(
+            div(style = "display: inline-block; width: 30px",
               checkboxInput(inputId = "heatmap_plot_manual_lower_limit",
                             label   = NULL,
                             value   = FALSE)),
-            column(width = 10,
+            div(style = "display: inline-block; width: 150px",
               numericInput(inputId = "heatmap_plot_manual_lower_limit_value",
                            label   = NULL,
                            value   = 0))
