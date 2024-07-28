@@ -2,6 +2,7 @@
 % Please edit documentation in R/zzz.R
 \docType{package}
 \name{metagate}
+\alias{-package}
 \alias{metagate}
 \alias{.onAttach}
 \title{metagate}

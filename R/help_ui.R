@@ -23,7 +23,8 @@ help_ui <- function(input, output, session) {
                          "<strong>metagate.malmberglab.com</strong></a>")),
 
                   h3("Citation"),
-                  p(HTML("<em>Information about citation to be added upon publication</em>")),
+                  p("Please cite the following article:"),
+                  p(HTML("<em>Ask EH, Tschan-Plessl A, Hoel HJ, Kolstad A, Holte H, Malmberg KJ. <strong>MetaGate: Interactive analysis of high-dimensional cytometry data with metadata integration.</strong> Patterns. 2024 May;100989. <a href=\"https://doi.org/10.1016/j.patter.2024.100989\" target=\"_blank\">https://doi.org/10.1016/j.patter.2024.100989</a>.</em>")),
 
                   fluidRow(
                     column(6, h3("Technical information"), tableOutput("help_technical_table")),

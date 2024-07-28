@@ -2,6 +2,8 @@
 
 MetaGate is an R package for visualization and statistical analysis of large cytometry data sets through a web browser-based user interface.
 
+MetaGate was [published in _Patterns_](https://doi.org/10.1016/j.patter.2024.100989) on May 13, 2024.
+
 For more information about how to use MetaGate, please visit [metagate.malmberglab.com](https://metagate.malmberglab.com).
 
 
@@ -28,3 +30,9 @@ MetaGate will now launch in your web browser. If your web browser does not open 
 ## How to use MetaGate
 
 Please visit our website at [metagate.malmberglab.com](http://metagate.malmberglab.com) for information on how to use MetaGate.
+
+
+## Citation
+
+Please cite the following article:
+> Ask EH, Tschan-Plessl A, Hoel HJ, Kolstad A, Holte H, Malmberg KJ. **MetaGate: Interactive analysis of high-dimensional cytometry data with metadata integration.** Patterns. 2024 May;100989. https://doi.org/10.1016/j.patter.2024.100989.
